@@ -38,7 +38,7 @@ and I will be catching up.
 ### Week 5
 
 * Start writing methods to calculate trends over time
-* Line graph of top styles?
+* Line graph of top styles
 * Check documentation as it exists
 
 ### Week 6
