@@ -17,11 +17,42 @@ Google Fonts provides two databases publicly. https://raw.githubusercontent.com/
 #### Mockup
 ![mockup](mockup.png)
 
+A graph, with the Y axis tracking downloads and the X axis tracking time. Each line in the graph represents a style. Each line may be clicked on for details.
+
 #### CRC
-![CRC](crc.png),
+![CRC](crc.png)
 
 ### UML
 ![UML](uml.png)
+
+### Video
+
+https://mesacsclub.com/kaa/explain.mp4
+
+### Learning Outcomes
+LO1: Employ design principles of object-oriented programming
+* Each typeface is represented as an object.
+
+LO2: Construct programs utilizing single and multidimensional arrays
+* Array of styles containing arrays of typefaces.
+
+LO3: Construct programs utilizing object and classes in object-oriented programming, including aggregation
+* ComparisonView has-an array of FontFamilies.
+
+LO4: Construct programs utilizing inheritance and polymorphism, including abstract classes and interfaces
+* CSVReader and JSONReader extend Reader. Comparisonview Extend JFrame.
+
+LO5: Construct programs using generic collections and data structures
+* I might use ArrayLists instead of arrays for the set of FontFamilies.
+
+LO6: Construct programs utilizing graphical user interfaces utilizing event-driven programming.
+* Line graph with interactive elements. Each line may be clicked on for further information.
+
+LO7: Construct programs utilizing exception handling
+* Check each file's location in the HashMap. If permissions fail, handle it, notify the user.
+
+LO8: Construct programs utilizing text file I/O
+* Reader reads from CSV and JSON.
 
 ### The Plan
 
