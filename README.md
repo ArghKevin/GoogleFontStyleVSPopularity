@@ -14,6 +14,15 @@ We'd like to graph which styles typefaces are trending in popularity. This way, 
 
 Google Fonts provides two databases publicly. https://raw.githubusercontent.com/google/fonts/main/tags/all/families.csv provides a listing of each typeface's name; style; and weight. https://fonts.google.com/metadata/stats provides popularity statistics of each typeface, over different metrics of time. Together, these may be used to generate a graphical interface demonstrating what correlation, if any, lies between a typeface's technical qualities and actual popularity. The typefaces are downloadable from a central repository, https://github.com/google/fonts. Using the files included, lower-level properties, such as glyph count and file size, may be analyzed.
 
+#### Mockup
+![mockup](mockup.png)
+
+#### CRC
+![CRC](crc.png),
+
+### UML
+![UML](uml.png)
+
 ### The Plan
 
 #### Week 1
