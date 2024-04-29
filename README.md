@@ -97,3 +97,48 @@ LO8: Construct programs utilizing text file I/O
 
 * Whatever isn't done, finish it
 * Demonstration video
+
+## Week 2: Updates
+The design implementation has been begun.
+Method stubs have been put in place.
+The start of the file searching has been implemented.
+
+The metadata of each file family is stored in a METADATA.pb in its
+associated directory. From this, we get the human name, the names of
+all associated font files, and a few other pieces of information.
+In main(), we walk the file tree, looking for all METADATA.pb files.
+These will in turn be allocated JSONReader objects. JSONReader will
+tentatively allow for pulling fields from the file similar to jq.
+Processing that kind of syntax requires recursive descent through braces,
+I'm mentally preparing myself to write that kind of code.
+
+Current output: a listing of the METADATA.pb file paths.
+.\fonts\apache\aclonica\METADATA.pb
+...
+.\fonts\ofl\zenloop\METADATA.pb
+.\fonts\ofl\zenmarugothic\METADATA.pb
+.\fonts\ofl\zenoldmincho\METADATA.pb
+.\fonts\ofl\zentokyozoo\METADATA.pb
+.\fonts\ofl\zeyada\METADATA.pb
+.\fonts\ofl\zhimangxing\METADATA.pb
+.\fonts\ofl\zillaslab\METADATA.pb
+.\fonts\ofl\zillaslabhighlight\METADATA.pb
+.\fonts\ufl\ubuntu\METADATA.pb
+.\fonts\ufl\ubuntucondensed\METADATA.pb
+.\fonts\ufl\ubuntumono\METADATA.pb
+.\fonts\ufl\ubuntusans\METADATA.pb
+.\fonts\ufl\ubuntusansmono\METADATA.pb
+
+CSV files have a header and a body. The header is one line.
+The body is every line after. Maybe the body should be composed
+of an array of hash maps? Or would an array of arrays of Strings
+suffice?
+
+No graphics yet, nor anything related to the implementation of the
+line graphs. I've got stubs, but I need to figure out the details.
+
+Due to the size of the google fonts repository, it may be difficult
+to share this project. As a whole, it's about 4GB. The vast majority
+of that is font data. I'll provide a zip file with a subset of these
+families included. To get the whole thing, clone from github.
+![week2](week2.png)
