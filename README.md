@@ -134,8 +134,9 @@ The body is every line after. Maybe the body should be composed
 of an array of hash maps? Or would an array of arrays of Strings
 suffice?
 
-No graphics yet, nor anything related to the implementation of the
-line graphs. I've got stubs, but I need to figure out the details.
+Graphically, only a window has been created. It now needs
+to be populated with widgets. I've got to figure out the details of the
+line graph implementation before the visuals are put in place.
 
 Due to the size of the google fonts repository, it may be difficult
 to share this project. As a whole, it's about 4GB. The vast majority
