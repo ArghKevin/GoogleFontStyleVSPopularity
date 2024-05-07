@@ -71,7 +71,7 @@ LO8: Construct programs utilizing text file I/O
 #### Week 3
 
 * Start parsing CSV
-* Javadoc in advance as much as is pragmatic,
+* Javadoc in advance as much as is pragmatic
 
 #### Week 4
 
@@ -143,3 +143,6 @@ to share this project. As a whole, it's about 4GB. The vast majority
 of that is font data. I'll provide a zip file with a subset of these
 families included. To get the whole thing, clone from github.
 ![week2](week2.png)
+
+## Week 3
+Repository re-organized. Font family metadata saved, all outline font files removed.
