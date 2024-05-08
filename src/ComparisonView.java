@@ -66,7 +66,7 @@ public class ComparisonView extends JFrame {
 		ArrayList<File> metadataList = new ArrayList<File>();
 		/* Enhanced for loop. */
 		for (File file : fileList) {
-			if (file.getPath().endsWith("METADATA.pb")) {
+			if (file.getPath().endsWith(".pb")) {
 				metadataList.add(file);
 			}
 		}
@@ -80,5 +80,6 @@ public class ComparisonView extends JFrame {
 
 	public static void main(String[] argv) {
 		new ComparisonView();
+		new CSVReader(new File("families.csv"));
 	}
 }

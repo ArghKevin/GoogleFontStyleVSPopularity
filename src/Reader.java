@@ -26,8 +26,10 @@ class Reader {
 			/* Scan over the contents of the input file. */
 			scan = new Scanner(file);
 			/* Save to object. */
+			contents = scan.nextLine() + "\n";
 			while (scan.hasNextLine()) {
 				contents += scan.nextLine();
+				contents += "\n";
 			}
 		/* On exception, exit. */
 		} catch (Exception e) {
