@@ -144,5 +144,9 @@ of that is font data. I'll provide a zip file with a subset of these
 families included. To get the whole thing, clone from github.
 ![week2](week2.png)
 
-## Week 3
+## Week 3: Updates
 Repository re-organized. Font family metadata saved, all outline font files removed.
+CSV parsing added. Not quite the original design, makes more sense. Array of hash maps. 
+JSON parsing not yet implemented. The places where it will be needed have been outlined.
+Javadoc comments added for existing methods.
+![week3](week3.png)
