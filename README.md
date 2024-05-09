@@ -146,7 +146,8 @@ families included. To get the whole thing, clone from github.
 
 ## Week 3: Updates
 Repository re-organized. Font family metadata saved, all outline font files removed.
-CSV parsing added. Not quite the original design, makes more sense. Array of hash maps. 
-JSON parsing not yet implemented. The places where it will be needed have been outlined.
+The repository has changed from 2GB to 30MB.
+CSV parsing added. Not quite the original design, but one that's more practical. It's made of an array of hash maps. 
+JSON parsing not yet implemented, though the places where it will be needed have been outlined.
 Javadoc comments added for existing methods.
 ![week3](week3.png)
