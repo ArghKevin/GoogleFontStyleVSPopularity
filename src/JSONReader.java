@@ -19,7 +19,7 @@ public class JSONReader extends Reader {
 		super(file);
 	}
 	
-	/*
+	/**
 	 * Search for and return the first
 	 * match.
 	 */
@@ -27,14 +27,14 @@ public class JSONReader extends Reader {
 		return null;
 	}
 
-	/*
+	/**
 	 * Search for and return all matches.
 	 */
 	public String[] getAll(String field) {
 		return null;
 	}
 	
-	/*
+	/**
 	 * Search for and return a table of fields.
 	 */
 	public String getTable(HashMap<String,String> name) {

@@ -42,7 +42,7 @@ class Reader {
 		}
 	}
 	
-	/*
+	/**
 	 * @return the contents of the file.
 	 */
 	String getContents() {

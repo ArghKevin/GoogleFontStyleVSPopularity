@@ -34,7 +34,7 @@ public class FontFamily {
 	/* popularity.json and families.csv are shared among all families.
 	Have their associated objects passed from outside. */
 
-	/*
+	/**
 	 * Constructor.
 	 */
 	public FontFamily(JSONReader metadata, JSONReader popularity, CSVReader styles) {
@@ -44,7 +44,7 @@ public class FontFamily {
 		parseStyles(styles);
 	}
 
-	/*
+	/**
 	 * Parse metadata.
 	 */
 	private void parseMetadata(JSONReader metadata) {
@@ -56,13 +56,13 @@ public class FontFamily {
 		category = metadata.get("category");
 	}
 
-	/*
+	/**
 	 * Parse popularity.
 	 */
 	private void parsePopularity(JSONReader popularity) {
 	}
 
-	/*
+	/**
 	 * Parse styles.
 	 */
 	private void parseStyles(CSVReader styles) {

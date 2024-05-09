@@ -22,7 +22,7 @@ public class ComparisonView extends JFrame {
 	private final int WINDOW_MIN_WIDTH = 960;
 	private final int WINDOW_MIN_HEIGHT = 540;
 
-	/*
+	/**
 	 * Walk the file tree.
 	 */
 	static void walk(File dir, ArrayList<File> list) {
@@ -39,7 +39,9 @@ public class ComparisonView extends JFrame {
 		}
 	}
 
-	/* Initialize GUI and comparison. */
+	/**
+	 * Initialize GUI and comparison.
+	 */
 	public ComparisonView() {
 		setTitle("Google Fonts Style vs. Popularity"); // Window title
 		setMinimumSize(new Dimension(WINDOW_MIN_WIDTH,

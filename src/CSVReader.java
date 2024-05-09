@@ -28,7 +28,7 @@ public class CSVReader extends Reader {
 		parse();
 	}
 
-	/*
+	/**
 	 * Parse CSV file.
 	 */
 	public void parse() {

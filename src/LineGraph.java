@@ -16,7 +16,7 @@ import javax.swing.*;
 public class LineGraph {
 	int[][] coordinates; // A line graph has-a set of coordinates
 
-	/*
+	/**
 	 * Constructor.
 	 */
 	public LineGraph() {
@@ -24,7 +24,7 @@ public class LineGraph {
 	}
 	
 
-	/*
+	/**
 	 * Set a point at a pair of coordinates.
 	 */
 	void setCoordinates(int y, int x) {
