@@ -1,3 +1,4 @@
+import java.util.HashMap;
 import java.io.*;
 
 /*
@@ -5,10 +6,9 @@ import java.io.*;
  * Kian Agheli
  * 
  * References:
- * https://jqlang.github.io/jq/manual/
  * 
  * Date:
- * 2024-04-28
+ * 2024-05-08
  * 
  * Purpose of class:
  * Read from and interpret JSON files.
@@ -19,8 +19,25 @@ public class JSONReader extends Reader {
 		super(file);
 	}
 	
-	/* Something akin to jq's field selection. */
-	public String getField(String field) {
+	/*
+	 * Search for and return the first
+	 * match.
+	 */
+	public String get(String field) {
+		return null;
+	}
+
+	/*
+	 * Search for and return all matches.
+	 */
+	public String[] getAll(String field) {
+		return null;
+	}
+	
+	/*
+	 * Search for and return a table of fields.
+	 */
+	public String getTable(HashMap<String,String> name) {
 		return null;
 	}
 }

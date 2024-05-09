@@ -12,7 +12,7 @@ import java.awt.*;
  * https://stackoverflow.com/questions/4871051/how-to-get-the-current-working-directory-in-java
  * 
  * Date:
- * 2024-04-28
+ * 2024-05-08
  * 
  * Purpose of class:
  * Provide a view for comparing font families.
@@ -76,10 +76,12 @@ public class ComparisonView extends JFrame {
 		for (File file : metadataList) {
 			System.out.println(file.getPath());
 		}
+
+		new CSVReader(new File("families.csv"));
+		new JSONReader(new File("popularity.json"));
 	}
 
 	public static void main(String[] argv) {
 		new ComparisonView();
-		new CSVReader(new File("families.csv"));
 	}
 }

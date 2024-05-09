@@ -10,7 +10,7 @@ import java.util.Arrays;
  * References:
  * 
  * Date:
- * 2024-04-28
+ * 2024-05-08
  * 
  * Purpose of class:
  * Read from and interpret CSV files.
@@ -28,6 +28,9 @@ public class CSVReader extends Reader {
 		parse();
 	}
 
+	/*
+	 * Parse CSV file.
+	 */
 	public void parse() {
 		String[] lines = this.getContents().split("\n");
 		this.header = lines[0].split(",");
