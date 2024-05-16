@@ -1,11 +1,14 @@
 import java.io.*;
-import java.util.Scanner;
+import java.nio.file.Files;
+import java.nio.charset.Charset;
+import java.util.List;
 
 /*
  * @author
  * Kian Agheli
  * 
  * References:
+ * https://www.baeldung.com/java-scanner
  * 
  * Date:
  * 2024-05-08
@@ -21,24 +24,16 @@ class Reader {
 	public Reader(File file) {
 		this.file = file;
 		contents = null;
-		Scanner scan = null;
 		try {
-			/* Scan over the contents of the input file. */
-			scan = new Scanner(file);
-			/* Save to object. */
-			contents = scan.nextLine() + "\n";
-			while (scan.hasNextLine()) {
-				contents += scan.nextLine();
-				contents += "\n";
-			}
+			/* Read the contents of the input file. Assume UTF-8.
+			Files.readAllLines() automatically closes the file. */
+			List<String> lines = Files.readAllLines(file.toPath(), Charset.forName("UTF-8"));
+			/* Combine list into one string. */
+			contents = String.join("\n", lines);
 		/* On exception, exit. */
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 			System.exit(1);
-		} finally {
-			if (scan != null) {
-				scan.close();
-			}
 		}
 	}
 	
