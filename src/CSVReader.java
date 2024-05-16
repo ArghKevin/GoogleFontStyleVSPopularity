@@ -34,7 +34,6 @@ public class CSVReader extends Reader {
 	public void parse() {
 		String[] lines = this.getContents().split("\n");
 		this.header = lines[0].split(",");
-		System.out.printf("%d\n", header.length);
 
 		/* Iterate over all lines of the body. */
 		for (int i = 1; i < lines.length; i++) {
@@ -47,16 +46,13 @@ public class CSVReader extends Reader {
 			}
 			body.add(map);
 		}
-
-		for (String head : this.header) {
-			System.out.printf("%s\t", head);
-		}
-		System.out.println();
-		for (HashMap<String,String> map : body) {
-			for (int i = 0; i < header.length; i++) {
-				System.out.printf("%s\t", map.get(header[i]));
-			}
-			System.out.println();
-		}
+	}
+	
+	public int getLength() {
+		return body.size();
+	}
+	
+	public String get(int i, String key) {
+		return body.get(i).get(key);
 	}
 }
