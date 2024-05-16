@@ -21,6 +21,7 @@ import java.awt.*;
 public class ComparisonView extends JFrame {
 	private final int WINDOW_MIN_WIDTH = 960;
 	private final int WINDOW_MIN_HEIGHT = 540;
+	private ArrayList<FontFamily> fonts;
 
 	/**
 	 * Walk the file tree.
@@ -73,14 +74,33 @@ public class ComparisonView extends JFrame {
 			}
 		}
 		
-		/* Create FontFamily objects from each METADATA.pb file.
-		Not done yet. */
-		for (File file : metadataList) {
-			System.out.println(file.getPath());
+		File styleFile = new File("families.csv");
+		if (!styleFile.exists()) {
+			System.exit(-1);
 		}
-
-		new CSVReader(new File("families.csv"));
-		new JSONReader(new File("popularity.json"));
+		
+		File popularityFile = new File("popularity.json");
+		if (!popularityFile.exists()) {
+			System.exit(-1);
+		}
+		
+		
+		CSVReader style = new CSVReader(styleFile);
+		JSONReader popularity = new JSONReader(popularityFile);
+		/* Create FontFamily objects from each METADATA.pb file. */
+		fonts = new ArrayList<FontFamily>();
+		for (File file : metadataList) {
+			JSONReader metadata = new JSONReader(file);
+			metadata.setPb();
+			fonts.add(new FontFamily(metadata, popularity, style));
+		}
+		
+		for (FontFamily font : fonts) {
+			System.out.println(font.getFamilyName());
+			for (String subset : font.getSubsets()) {
+				System.out.println(subset);
+			}
+		}
 	}
 
 	public static void main(String[] argv) {
