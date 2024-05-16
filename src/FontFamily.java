@@ -23,8 +23,8 @@ public class FontFamily {
 	private HashMap<String,Integer> styles;
 	/* Taken from top level of METADATA.pb */
 	private String dateAdded;
-	/* Languages supported. */
-	private String[] languages;
+	/* Unicode ranges. */
+	private String[] subsets;
 	private String designer;
 	/* total views, 7day views, 30day views, 90day views, year views.
 	Taken from popularity.json. */
@@ -50,7 +50,7 @@ public class FontFamily {
 	private void parseMetadata(JSONReader metadata) {
 		familyName = metadata.get("name");
 		dateAdded = metadata.get("date_added");
-		languages = metadata.getAll("languages");
+		subsets = metadata.getAll("subsets");
 		designer = metadata.get("designer");
 		license = metadata.get("license");
 		category = metadata.get("category");
@@ -66,5 +66,12 @@ public class FontFamily {
 	 * Parse styles.
 	 */
 	private void parseStyles(CSVReader styles) {
+	}
+	
+	public String getFamilyName() {
+		return familyName;
+	}
+	public String[] getSubsets() {
+		return subsets;
 	}
 }

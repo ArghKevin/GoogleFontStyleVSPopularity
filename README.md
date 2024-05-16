@@ -151,3 +151,14 @@ CSV parsing added. Not quite the original design, but one that's more practical.
 JSON parsing not yet implemented, though the places where it will be needed have been outlined.
 Javadoc comments added for existing methods.
 ![week3](week3.png)
+
+## Week 4: Updates
+JSON parsing works well enough for most FontFamily metadata to be composed.
+The only parsing which still needs implementation is tables of values.
+That'll be worked on tomorrow, when the trend calculation methods are begun.
+When originally writing the plans for this week, the repository still contained
+all of the outline fonts. That proved impractical. However, the metadata contains
+sets of data describing the Unicode subsets implemented by a font. Along with JSONReader.getAll(),
+this fulfulls most of the same purpose. No disk space calculation, unfortunately.
+There are 9 days left.
+![week4](week4.png)

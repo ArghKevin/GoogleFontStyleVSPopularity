@@ -14,7 +14,7 @@ import javax.swing.*;
  */
 
 public class LineGraph {
-	int[][] coordinates; // A line graph has-a set of coordinates
+	private int[][] coordinates; // A line graph has-a set of coordinates
 
 	/**
 	 * Constructor.
