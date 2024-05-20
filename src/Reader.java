@@ -33,7 +33,7 @@ class Reader {
 		/* On exception, exit. */
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
-			System.exit(1);
+			System.exit(-1);
 		}
 	}
 	

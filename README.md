@@ -162,3 +162,18 @@ sets of data describing the Unicode subsets implemented by a font. Along with JS
 this fulfulls most of the same purpose. No disk space calculation, unfortunately.
 There are 9 days left.
 ![week4](week4.png)
+
+## Weeks 5 and 6: Updates
+JSON parsing as it is needed is wholly implemented.
+Each FontFamily is populated with all fields.
+The popularity metrics are implemented as a HashMap.
+The LineGraph has been implemented as a JPanel with a custom paintCompontent method.
+Included with it is a calculation of the top 10 most popular typefaces.
+This isn't quite done yet, because also being able to view graphs of the top typeface styles
+would be preferrable. Further, there is not yet any option to expose the metadata of each font.
+Also, graphing by different time metrics would be preferable.
+The project is at the stage where there are pretty colors, however the utility is not yet fulfilled.
+The project current fulfills all LOs except LO6. I'll be working on that next.
+I have until the 25th. It's the 20th. 5 days left.
+![week5](week5.png)
+![week5](week5.png)
