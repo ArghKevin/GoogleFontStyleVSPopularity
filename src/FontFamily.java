@@ -8,7 +8,7 @@ import java.util.HashMap;
  * References:
  * 
  * Date:
- * 2024-05-08
+ * 2024-05-20
  * 
  * Purpose of class:
  * Store and operate on font family metadata.

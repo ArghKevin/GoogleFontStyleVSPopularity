@@ -16,7 +16,7 @@ import java.awt.*;
  * 
  * 
  * Date:
- * 2024-05-08
+ * 2024-05-20
  * 
  * Purpose of class:
  * Provide a view for comparing font families.

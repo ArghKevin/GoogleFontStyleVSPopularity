@@ -21,7 +21,7 @@ import java.util.Date;
  * https://stackoverflow.com/questions/5799140/java-get-month-string-from-integer
  *
  * Date:
- * 2024-05-08
+ * 2024-05-20
  *
  * Purpose of class:
  * Draw a line graph.

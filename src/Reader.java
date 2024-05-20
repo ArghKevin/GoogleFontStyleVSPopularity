@@ -11,7 +11,7 @@ import java.util.List;
  * https://www.baeldung.com/java-scanner
  * 
  * Date:
- * 2024-05-08
+ * 2024-05-20
  * 
  * Purpose of class:
  * Read from a file.
