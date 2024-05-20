@@ -176,4 +176,4 @@ The project is at the stage where there are pretty colors, however the utility i
 The project current fulfills all LOs except LO6. I'll be working on that next.
 I have until the 25th. It's the 20th. 5 days left.
 ![week5](week5.png)
-![week5](week5.png)
+![week6](week6.png)
