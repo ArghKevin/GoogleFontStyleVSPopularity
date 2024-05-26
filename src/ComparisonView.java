@@ -30,7 +30,7 @@ public class ComparisonView extends JFrame {
 	private Font textFont; // A ComparisonView has a preferred text font
 	private Font buttonFont; // A ComparisonView has a preferred button font
 	private final int TEXT_SIZE = 20; // A ComparisonView has a constant text size.
-	private FamilyButton buttons[]; // A ComparisonView has an array of buttons.
+	private FamilyButton[] buttons; // A ComparisonView has an array of buttons.
 	private final int BUTTON_MAX = 10; // A ComparisonView has a set maximum number of buttons.
 
 	/**

@@ -15,6 +15,7 @@ import java.awt.*;
  * Provide an area to show metadata.
  */
 
+// MetadataView is a JTextArea
 public class MetadataView extends JTextArea {
 	// A MetadataView has-a default text.
 	private final String defaultText = "Toggle a font family using a colorful button below.\n" + 

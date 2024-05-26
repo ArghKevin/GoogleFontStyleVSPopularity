@@ -12,6 +12,8 @@ import java.awt.event.*;
  * Purpose of class:
  * Listen for state changes in an instantiation of FamilyButton.
  */
+
+// FamilyButtonListener is an ItemListener
 public class FamilyButtonListener implements ItemListener
 {
 	private MetadataView metadataView; // A FamilyButtonListener has a metadataView

@@ -14,6 +14,7 @@ import javax.swing.JToggleButton;
  * Provide an interative button to toggle FontFamily metadata.
  */
 
+// FamilyButton is a JToggleButton
 public class FamilyButton extends JToggleButton {
 	private FontFamily family; // A FamilyButton has-a font family
 

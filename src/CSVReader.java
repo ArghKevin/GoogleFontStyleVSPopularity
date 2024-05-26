@@ -16,6 +16,7 @@ import java.util.Arrays;
  * Read from and interpret CSV files.
  */
 
+// CSVReader is a reader
 public class CSVReader extends Reader {
 	private String[] header; // A CSV file has-a header. One line, multiple fields.
 	// Array of HashMaps. Headers are keys, values are on each line of the CSV following the header.

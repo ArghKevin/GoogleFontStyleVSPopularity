@@ -177,3 +177,48 @@ The project current fulfills all LOs except LO6. I'll be working on that next.
 I have until the 25th. It's the 20th. 5 days left.
 ![week5](week5.png)
 ![week6](week6.png)
+
+## Weeks 7 and 8: Finishing
+The graphical user interface is complete. Interactive buttons associated with each font family
+have been added. Their colors match with the color of their associated line.
+When a button is toggled, a view of its associated font family's metadata is shown.
+The comments have been checked over.
+
+![week7](week7.png)
+![week8](week8.png)
+
+### Reflection
+
+Reflecting on the project, I am glad that I chose something relatively ambitious.
+Though the project equals roughly 1000 lines of code, and is considerably larger than the minimum
+acceptable effort, I am glad that I produced something which genuinely piques my interest.
+
+I made plenty of design changes. I basically understood the design of the program at the beginning, though
+the details naturally didn't exist yet. I knew that it would be several hundred lines of code, though I didn't
+know how many exactly. My best guesstimate near the start was closer to 600 than 1000.
+I didn't expect JSON parsing to be as painful as it was. In hindsight, I was well aware
+that I knew very little about properly parsing JSON. I still don't know much, as I used
+the exact format of the provided JSON data as a crutch. Actually parsing the several kinds
+of braces would have been much more work.
+
+I didn't initially account for the disk size of the actual font data. 2GB is too large
+for today's networks to quickly distribute. It's a matter of downloading over the course
+of minutes instead of seconds. To remedy this, I kept only the metadata files included
+with the font families, and removed the actual font data from the git history.
+
+There is more that I would have liked to have done. Being able to collate the font families
+into their distinct styles, as outlines in families.csv, would have been useful. Further,
+being able to change the time metric used for measuring views during program runtime
+would allow further insight. As it is, the view provided is relatively static. Easier
+to read than manually parsing the three distinct files which contain data on each family,
+yet still less than totally satisfying.
+
+If I were to restart the writing of the program from scratch, I would look for a parter
+who enjoys writing the graphical front-ends of programs. That kind of code gets ugly
+quickly. Ideally, a partner would also remain engaged throughout the project.
+It is what it is. I enjoyed the project regardless. The workload was occasionally heavy,
+though on the whole rewarding.
+
+### Learning Objective Demonstration
+
+https://mesacsclub.com/kaa/learning.mp4

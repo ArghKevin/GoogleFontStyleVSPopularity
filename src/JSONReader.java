@@ -21,6 +21,7 @@ import java.io.*;
  * Read from and interpret JSON files.
  */
 
+// JSONReader is a Reader
 public class JSONReader extends Reader {
 	/* metadata.pb is not exactly JSON, but so close to it
 	that it's practically a subset of JSON with fewer quotation
