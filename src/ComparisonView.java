@@ -16,7 +16,7 @@ import java.awt.*;
  * 
  * 
  * Date:
- * 2024-05-20
+ * 2024-05-25
  * 
  * Purpose of class:
  * Provide a view for comparing font families.
@@ -28,7 +28,10 @@ public class ComparisonView extends JFrame {
 	private final int WINDOW_MIN_HEIGHT = 540; // A ComparisonView has a minimum width
 	private ArrayList<FontFamily> fonts; // A ComparisonView has a list of fonts
 	private Font textFont; // A ComparisonView has a preferred text font
+	private Font buttonFont; // A ComparisonView has a preferred button font
 	private final int TEXT_SIZE = 20; // A ComparisonView has a constant text size.
+	private FamilyButton buttons[]; // A ComparisonView has an array of buttons.
+	private final int BUTTON_MAX = 10; // A ComparisonView has a set maximum number of buttons.
 
 	/**
 	 * Walk the file tree.
@@ -70,6 +73,10 @@ public class ComparisonView extends JFrame {
 		getContentPane().setFont(textFont);
 		UIManager.put("Label.font", textFont);
 		UIManager.put("Panel.font", textFont);
+		UIManager.put("TextArea.font", textFont);
+		/* Set button font to a DejaVu Sans Condensed at a smaller point size. */
+		buttonFont = new Font("DejaVu Sans Condensed", Font.PLAIN, TEXT_SIZE * 3 / 4);
+		UIManager.put("ToggleButton.font", buttonFont);
 
 
 		setTitle("Google Fonts Style vs. Popularity"); // Window title
@@ -121,14 +128,37 @@ public class ComparisonView extends JFrame {
 			fonts.add(new FontFamily(metadata, popularity, style));
 		}
 
+		/* Sort fonts by their views over the past 30 days. */
+		fonts = FontFamily.sort(fonts, "30day");
+
 		waiting.remove(waitingLabel); // Remove waiting message.
-		JPanel author = new JPanel();
-		JLabel authorLabel = new JLabel("Written by Kian Agheli");
-		author.add(authorLabel);
-		add(author, BorderLayout.SOUTH); // Add author panel.
+
+		/* Add panel for font family metadata. */
+		JPanel metadataPanel = new JPanel();
+		MetadataView metadataView = new MetadataView();
+		metadataPanel.add(metadataView);
+		this.add(metadataPanel, BorderLayout.WEST);
 
 		LineGraph graph = new LineGraph(fonts); // Draw a line graph of the font views metadata.
-		add(graph, BorderLayout.NORTH); // Add the line graph.
+		add(graph, BorderLayout.EAST); // Add the line graph.
+
+		/* Add panel for font family metadata activation buttons. BUTTON_MAX buttons
+		in horizontal orientation. */
+		JPanel buttonPanel = new JPanel();
+		buttonPanel.setLayout(new GridLayout(1, BUTTON_MAX));
+		buttons = new FamilyButton[BUTTON_MAX];
+		/* Display buttons for the top families. */
+		for (int i = 0; i < BUTTON_MAX; i++) {
+			/* Get the family associated with the given iteration's sort order. */
+			FamilyButton button = new FamilyButton(fonts.get(i));
+			/* Set the text of the button to the name of the font family. */
+			button.setText(button.getFamily().getFamilyName());
+			button.setBackground(new Color(LineGraph.getColors()[i]));
+			button.addItemListener(new FamilyButtonListener(buttons, i, metadataView));
+			buttons[i] = button;
+			buttonPanel.add(button);
+		}
+		this.add(buttonPanel, BorderLayout.SOUTH);
 
 		pack(); // Pack the window.
 		setVisible(true); // Re-draw the window.

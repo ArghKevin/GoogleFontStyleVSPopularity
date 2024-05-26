@@ -12,9 +12,10 @@ import java.io.*;
  * https://stackoverflow.com/questions/3880274/how-to-convert-the-object-to-string-in-java
  * https://stackoverflow.com/questions/8938498/get-the-index-of-a-pattern-in-a-string-using-regex
  * https://howtodoinjava.com/java/regex/start-end-of-string/
+ * https://www.baeldung.com/java-remove-last-character-of-string
  * 
  * Date:
- * 2024-05-20
+ * 2024-05-25
  * 
  * Purpose of class:
  * Read from and interpret JSON files.
@@ -77,9 +78,15 @@ public class JSONReader extends Reader {
 		/* This JSON is pretty-printed. */
 		int nl = json.indexOf("\n", start);
 		
-		/* Extract substring. Remove any quotation marks and commas. */
-		String substring = json.substring(start, nl);
-		return substring.replaceAll("[\",]", "");
+		/* Extract substring. Remove any quotation marks. */
+		String extract = json.substring(start, nl);
+		extract = extract.replaceAll("\"", "");
+
+		/* If the string ends with a comma, remove it. */
+		if (extract.endsWith(",")) {
+			extract = extract.substring(0, extract.length() - 1);
+		}
+		return extract;
 	}
 
 	/**

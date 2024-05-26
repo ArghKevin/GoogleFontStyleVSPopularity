@@ -21,7 +21,7 @@ import java.util.Date;
  * https://stackoverflow.com/questions/5799140/java-get-month-string-from-integer
  *
  * Date:
- * 2024-05-20
+ * 2024-05-25
  *
  * Purpose of class:
  * Draw a line graph.
@@ -32,15 +32,17 @@ public class LineGraph extends JPanel {
 	private ArrayList<FontFamily> fonts; // A line graph has-a set of fonts
 	private final int WIDTH = 640; // A line graph has a preferred width
 	private final int HEIGHT = 480; // A line graph has a preferred height
-	private final int LINES = 0x10; // A line graph has a maximum lines graphed at a time
+	private final int LINES = 10; // A line graph has a maximum lines graphed at a time
 	private final int LINE_WIDTH = 3; // A line graph has lines with a given pixel width
 	private final int TICK_HEIGHT = 10; // A line graph has ticks with a given pixel height
 	/* A line graph has an array of abbreviated month names. */
 	private final String[] ABBREVIATED_MONTH = {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul",
 		"Aug", "Sep", "Oct", "Nov", "Dec"};
-	/* A line graph has an array of unique color values to use for each of the lines. */
-	private final int[] COLORS = {0xff0000, 0x00ff00, 0x0000ff, 0xffff00, 0xff00ff, 0x00ffff,
-		0xff8040, 0xff4080, 0x80ff40, 0x40ff80, 0x4080ff, 0x8040ff, 0xff8080, 0x80ff80, 0x8080ff,
+	/* A line graph has an array of unique color values to use for each of the lines.
+	Made static so that it may be referenced from ComparisonView, so that the colors used for line
+	drawings and their associated buttons may match. */
+	private static final int[] COLORS = {0xff0000, 0x00ff00, 0x0000ff, 0xffff00, 0xff00ff, 0x00ffff,
+		0xff8040, 0xff4080, 0x4080ff, 0xff8080, 0x80ff80, 0x8080ff,
 		0xff4040, 0x40ff40, 0x4040ff};
 
 	/**
@@ -110,8 +112,6 @@ public class LineGraph extends JPanel {
 		/* Draw y axis. Subtract one third of stroke width to account for width of first tick. */
 		graphics.drawLine(TICK_HEIGHT + xOffset - LINE_WIDTH / 3, 0, TICK_HEIGHT + xOffset -
 			LINE_WIDTH / 3, yMax);
-
-		sortFonts("30day"); // Sort the list of fonts by their 30day metrics.
 
 		int y = 0 + metrics.getHeight();
 		/* Cast to double within parentheses for floating-point
@@ -187,33 +187,9 @@ public class LineGraph extends JPanel {
 		}
 	}
 
-	/* Sort by views, in descending order. */
-	private void sortFonts(String metric) {
-		Collections.sort(fonts, new Comparator<FontFamily>() {
-			/* If a is lesser, return 1. If b is lesser, return -1.
-			Otherwise, they are equal, return 0. */
-			public int compare (FontFamily a, FontFamily b) {
-				/* If equal, return 0. */
-				if (a.getViews().get(metric) == b.getViews().get(metric)) {
-					return 0;
-				}
-
-				/* If either is null, it is lesser. */
-				if (a.getViews().get(metric) == null) {
-					return 1;
-				}
-				if (b.getViews().get(metric) == null) {
-					return -1;
-				}
-
-				/* Neither are null, compare. */
-				if (a.getViews().get(metric) > b.getViews().get(metric)) {
-					return -1;
-				}
-
-				/* aViews must be lesser. */
-				return 1;
-			}
-		});
+	/* Return the array of hex values used to color the lines on the graph.
+	The background color of each FamilyButton match the associated line on the graph. */
+	public static int[] getColors() {
+		return COLORS;
 	}
 }

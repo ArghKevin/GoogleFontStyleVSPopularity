@@ -1,4 +1,7 @@
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 
 /*
@@ -8,7 +11,7 @@ import java.util.HashMap;
  * References:
  * 
  * Date:
- * 2024-05-20
+ * 2024-05-25
  * 
  * Purpose of class:
  * Store and operate on font family metadata.
@@ -152,5 +155,62 @@ public class FontFamily {
 	 */
 	public HashMap<String,Long> getViews() {
 		return views;
+	}
+
+	/* Sort an ArrayList by a given metric of views, in descending order. */
+	public static ArrayList<FontFamily> sort(ArrayList<FontFamily> fonts, String metric) {
+		Collections.sort(fonts, new Comparator<FontFamily>() {
+			/* If a is lesser, return 1. If b is lesser, return -1.
+			Otherwise, they are equal, return 0. */
+			public int compare (FontFamily a, FontFamily b) {
+				/* If equal, return 0. */
+				if (a.getViews().get(metric) == b.getViews().get(metric)) {
+					return 0;
+				}
+
+				/* If either is null, it is lesser. */
+				if (a.getViews().get(metric) == null) {
+					return 1;
+				}
+				if (b.getViews().get(metric) == null) {
+					return -1;
+				}
+
+				/* Neither are null, compare. */
+				if (a.getViews().get(metric) > b.getViews().get(metric)) {
+					return -1;
+				}
+
+				/* aViews must be lesser. */
+				return 1;
+			}
+		});
+
+		return fonts; // Return sorted ArrayList.
+	}
+
+	public String toString() {
+		String string = String.format("%s\nPublished %s\n", familyName, dateAdded);
+		string += "Styles:\n";
+		for (String style : styles.keySet()) {
+			string += String.format("    %s: %d%%\n", style, styles.get(style));
+		}
+		string += String.format("Designed by %s\n", designer);
+		string += String.format("Distributed under the terms of the %s\n", license);
+		string += String.format("Vaguely categorized as %s\n", category);
+		string += "Unicode subsets:\n";
+		/* Print two subsets on each line. */
+		for (int i = 0; i < subsets.length - 1; i++) {
+			if (i % 2 == 0) {
+				string += String.format("    %s", subsets[i]);
+			} else {
+				string += String.format("; %s\n", subsets[i]);
+			}
+		}
+		if (subsets.length % 2 == 0) {
+			string += '\n';
+		}
+
+		return string;
 	}
 }
